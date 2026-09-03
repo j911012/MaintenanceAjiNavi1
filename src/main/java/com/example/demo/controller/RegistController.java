@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.entity.Restaurant;
 import com.example.demo.form.ShopRegistForm;
+import com.example.demo.service.RestaurantService;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class RegistController {
+	private final RestaurantService service;
 	
 	// 登録画面表示
 	@GetMapping("/shop/regist")
@@ -37,9 +43,11 @@ public class RegistController {
 			return "regist";
 		}
 		
-		/*
-		 * 後でService/Repositoryを呼び出してDB登録する
-		 */
+		Restaurant r = new Restaurant();
+		r.setRestaurantName(form.getRestaurantName());
+		r.setCatchPhrase(form.getCatchPhrase());
+		
+		service.regist(r);
 		
 		return "redirect:/shop/regist/result";
 	}
