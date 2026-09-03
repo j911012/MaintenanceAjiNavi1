@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.regist-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #5a6472;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d5dae2;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4a90d9;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.button-group .menu-button {
+    flex: 1;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-button.secondary {
+    background-color: #eef1f5;
+    color: #5a6472;
+}
+
+.menu-button.secondary:hover {
+    background-color: #e2e6ec;
+}
