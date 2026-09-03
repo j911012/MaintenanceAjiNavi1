@@ -28,4 +28,25 @@ public class RegistController {
 		
 		return "confirm";
 	}
+	
+	// 登録実行
+	@PostMapping("/shop/regist/complete")
+	public String complete(@Validated @ModelAttribute ShopRegistForm form, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "regist";
+		}
+		
+		/*
+		 * 後でService/Repositoryを呼び出してDB登録する
+		 */
+		
+		return "redirect:/shop/regist/result";
+	}
+	
+	// 完了画面表示
+	@GetMapping("/shop/regist/result")
+	public String result() {
+		return "complete";
+	}
 }
