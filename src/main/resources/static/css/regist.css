@@ -50,3 +50,29 @@
 .menu-button.secondary:hover {
     background-color: #e2e6ec;
 }
+
+.error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+}
+
+.confirm-table th,
+.confirm-table td {
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 14px;
+}
+
+.confirm-table th {
+    color: #8a94a6;
+    width: 40%;
+    font-weight: 500;
+}
