@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+}
+
+.list-table th,
+.list-table td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 14px;
+}
+
+.list-table th {
+    color: #8a94a6;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.list-table td {
+    color: #2c3e50;
+}
+
+/* 列幅のバランス調整 */
+.list-table th:nth-child(1),
+.list-table td:nth-child(1) {
+    width: 12%;
+}
+
+.list-table th:nth-child(4),
+.list-table td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}

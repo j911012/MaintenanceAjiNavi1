@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>店舗検索</title>
+    <link rel="stylesheet" th:href="@{/css/mt-top.css}">
+    <link rel="stylesheet" th:href="@{/css/regist.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>店舗検索</h1>
+
+            <form class="regist-form" th:action="@{/shop/search/result}" th:object="${restaurantSearchForm}" method="post">
+                <div class="form-group">
+                    <label for="restaurantName">店舗名</label>
+                    <input th:field="*{restaurantName}">
+                </div>
+
+                <div class="button-group">
+                    <a href="/mt-top" class="menu-button secondary">もどる</a>
+                    <button type="submit" class="menu-button">検索</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
