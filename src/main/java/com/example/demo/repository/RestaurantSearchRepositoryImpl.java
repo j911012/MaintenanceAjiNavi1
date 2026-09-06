@@ -22,7 +22,7 @@ public class RestaurantSearchRepositoryImpl implements RestaurantSearchRepositor
 				"		mr.restaurant_id,							" +
 				"		mr.restaurant_name,							" +
 				"		mr.catch_phrase,							" +
-				"		COUNT (tr.review_id) AS review_count		" +
+				"		COUNT(tr.review_id) AS review_count		" +
 				"	FROM											" +
 				"		m_restaurant mr								" +
 				"		LEFT OUTER JOIN t_review tr					" +
