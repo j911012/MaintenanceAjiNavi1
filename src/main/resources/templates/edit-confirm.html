@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>編集内容確認</title>
+    <link rel="stylesheet" th:href="@{/css/mt-top.css}">
+    <link rel="stylesheet" th:href="@{/css/regist.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>編集内容確認</h1>
+            <p class="subtitle">以下の内容で更新します</p>
+
+            <table class="confirm-table">
+                <tr>
+                    <th>店舗名</th>
+                    <td th:text="${shopEditForm.restaurantName}"></td>
+                </tr>
+                <tr>
+                    <th>キャッチフレーズ</th>
+                    <td th:text="${shopEditForm.catchPhrase}"></td>
+                </tr>
+            </table>
+
+            <form th:action="@{/shop/edit/complete}" th:object="${shopEditForm}" method="post">
+				<input type="hidden" th:field="*{restaurantId}">
+                <input type="hidden" th:field="*{restaurantName}">
+                <input type="hidden" th:field="*{catchPhrase}">
+                <div class="button-group">
+                    <button type="submit" th:formaction="@{/shop/edit/{id}(id=${shopEditForm.restaurantId})}" formmethod="get" class="menu-button secondary">もどる</button>
+                    <button type="submit" class="menu-button">更新する</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
