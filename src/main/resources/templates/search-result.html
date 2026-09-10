@@ -30,12 +30,16 @@
                     <th>店舗名</th>
                     <th>キャッチフレーズ</th>
                     <th>レビュー数</th>
+                    <th></th>
                 </tr>
                 <tr th:each="restaurant : ${restaurantList}">
                     <td th:text="${restaurant.restaurantId}"></td>
                     <td th:text="${restaurant.restaurantName}"></td>
                     <td th:text="${restaurant.catchPhrase}"></td>
                     <td th:text="${restaurant.reviewCount}"></td>
+                    <td>
+						<a th:href="@{/shop/edit/{id}(id=${restaurant.restaurantId})}">編集</a>
+					</td>
                 </tr>
             </table>
         </div>

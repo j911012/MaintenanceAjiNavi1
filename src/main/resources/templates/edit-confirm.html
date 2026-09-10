@@ -23,15 +23,15 @@
                 </tr>
             </table>
 
-            <form th:action="@{/shop/edit/complete}" th:object="${shopEditForm}" method="post">
-				<input type="hidden" th:field="*{restaurantId}">
-                <input type="hidden" th:field="*{restaurantName}">
-                <input type="hidden" th:field="*{catchPhrase}">
-                <div class="button-group">
-                    <button type="submit" th:formaction="@{/shop/edit/{id}(id=${shopEditForm.restaurantId})}" formmethod="get" class="menu-button secondary">もどる</button>
-                    <button type="submit" class="menu-button">更新する</button>
-                </div>
-            </form>
+			<form th:action="@{/shop/edit/complete}" th:object="${shopEditForm}" method="post">
+			    <input type="hidden" th:field="*{restaurantId}">
+			    <input type="hidden" th:field="*{restaurantName}">
+			    <input type="hidden" th:field="*{catchPhrase}">
+			    <div class="button-group">
+			        <a th:href="@{/shop/edit/{id}(id=${shopEditForm.restaurantId})}" class="menu-button secondary">もどる</a>
+			        <button type="submit" class="menu-button">更新する</button>
+			    </div>
+			</form>
         </div>
     </div>
 </body>
