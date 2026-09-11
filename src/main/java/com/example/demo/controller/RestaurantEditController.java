@@ -9,19 +9,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.entity.Restaurant;
 import com.example.demo.form.ShopEditForm;
+import com.example.demo.service.RestaurantEditService;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class RestaurantEditController {
+	
+	private final RestaurantEditService service;
 	
 	@GetMapping("/shop/edit/{id}")
 	public String showEditForm(@PathVariable("id") Integer id , Model model) {
 		
-		// ダミー
+		Restaurant restaurant = service.findById(id);
+		
 		ShopEditForm form = new ShopEditForm();
-		form.setRestaurantId(id);
-		form.setRestaurantName("hoge");
-		form.setCatchPhrase("hogehogeのキャッチフレーズ");
+		form.setRestaurantId(restaurant.getRestaurantId());
+		form.setRestaurantName(restaurant.getRestaurantName());
+		form.setCatchPhrase(restaurant.getCatchPhrase());
 		
 		model.addAttribute("shopEditForm", form);
 		
@@ -45,9 +53,12 @@ public class RestaurantEditController {
 			return "edit";
 		}
 		
-		// ダミー：本来はServiceでUPDATEする
-		System.out.println("---店舗更新---");
-		System.out.println(form);
+		Restaurant r = new Restaurant();
+		r.setRestaurantId(form.getRestaurantId());
+		r.setRestaurantName(form.getRestaurantName());
+		r.setCatchPhrase(form.getCatchPhrase());
+		
+		service.update(r);
 		
 		return "redirect:/shop/edit/result";
 	}
